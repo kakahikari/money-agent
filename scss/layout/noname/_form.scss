@@ -1,0 +1,29 @@
+input,
+button {
+  @include pure;
+  display: block;
+  transition: all .3s;
+}
+
+button {
+  &,
+  &.ui.button {
+    width: 100%;
+    padding-top: $inputPadding;
+    padding-bottom: $inputPadding;
+    cursor: pointer;
+    font-size: $fontSize * 1.2;
+    line-height: 1.4em;
+    font-weight: normal;
+    border-radius: $globalBorderRadius;
+    &.primary {
+      background-color: $color0;
+      color: $reverse_color0;
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: darken($color0, 10);
+      }
+    }
+  }
+}
