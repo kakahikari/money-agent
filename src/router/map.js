@@ -2,21 +2,12 @@ export const routes = [
   {
     path: '/',
     component: require('pages'),
+    redirect: {name: 'index'},
     children: [
-      { path: '/', redirect: {name: 'main'} },
-      { path: 'index', component: require('pages/main'), name: 'main', meta: { requiresAuth: true } },
-
-      {
-        path: 'auth',
-        component: require('pages/auth'),
-        children: [
-          { path: '/', redirect: { name: 'login' }, name: 'auth' },
-          { path: 'login', component: require('pages/auth/login'), name: 'login' },
-          { path: 'signup', component: require('pages/auth/signup'), name: 'signup' }
-        ]
-      }
+      { path: 'index', component: require('pages/welcome'), name: 'index', meta: { requiresAuth: true } }
     ]
   },
+  { path: '/login', component: require('pages/login'), name: 'login' },
 
-  { path: '*', redirect: { name: 'index' } }
+  { path: '*', redirect: { name: 'login' } }
 ]

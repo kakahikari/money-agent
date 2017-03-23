@@ -14,5 +14,5 @@ yarn run dev
 yarn run scss
 
 # build
-node setApi `API_URL` `SITE_DOMAIN`
+node setConfig `API_URL` `SITE_DOMAIN` `DEFAULT_LNG`
 yarn run build

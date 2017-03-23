@@ -1,4 +1,4 @@
-import { readCookie } from 'services/'
+import { createCookie, readCookie } from 'services/'
 import UserService from 'services/userService'
 import MAIN from '../'
 import { LANGUAGE, CURRENCY } from 'src/xhrConfig'
@@ -27,6 +27,9 @@ const mutations = {
   },
   SET_AUTH_USERNAME (state, payload) {
     state.username = payload
+  },
+  SET_AUTH_LANGUAGE (state, payload) {
+    state.language = payload
   }
 }
 
@@ -55,7 +58,9 @@ const actions = {
       MAIN.commit('SET_AUTH_STATUS', 1)
     }
     const username = await readCookie('username')
-    if (username) MAIN.commit('SET_USER_USERNAME', username)
+    if (username) MAIN.commit('SET_AUTH_USERNAME', username)
+    const language = await readCookie('language')
+    if (username) MAIN.commit('SET_AUTH_LANGUAGE', language)
   },
   async setUser (store, param) {
     const apiToken = await readCookie('apiToken')
@@ -72,6 +77,10 @@ const actions = {
   },
   setAuthUsername (store, param) {
     store.commit('SET_AUTH_USERNAME', param)
+  },
+  setLanguage (store, param) {
+    createCookie('language', param, 1)
+    store.commit('SET_AUTH_LANGUAGE', param)
   }
 }
 

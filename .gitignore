@@ -3,3 +3,7 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+style.css
+style.css.map
+src/version.js
+src/config.js

@@ -1,1 +1,0 @@
-export const _VERSION = '0.0.0'

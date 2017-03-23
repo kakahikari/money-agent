@@ -34,6 +34,8 @@ const xhr = async ({ context, url = '/', method = 'get', data = null, needToken 
     .catch((error) => {
       if (error.response) {
         return reject('http-' + error.response.status)
+      } else if (error.code === 'ECONNABORTED') {
+        return reject('v-timeout')
       } else {
         console.warn && console.warn(error.message)
       }

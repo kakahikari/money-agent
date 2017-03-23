@@ -28,12 +28,13 @@ class MemberService {
         data,
         context
       }).then((res) => {
-        return resolve(res)
+        return resolve(res.wallet)
       }).catch((err) => {
         return reject(ERROR_CODES[err.toString()] || err)
       })
     })
   }
+
 }
 
 export default new MemberService()

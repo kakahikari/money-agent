@@ -18,9 +18,11 @@ export default new Vuex.Store({
       eraseCookie('username')
 
       commit('AUTH_DEFAULT')
+      commit('AGENT_DEFAULT')
     },
     SET_DEFAULT ({commit}) {
       commit('AUTH_DEFAULT')
+      commit('AGENT_DEFAULT')
     }
   }
 })

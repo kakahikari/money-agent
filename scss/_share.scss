@@ -26,9 +26,6 @@ $globalBorderRadius: 5px;
 $inputBorderWidth: 1px;
 $inputPadding: .571em;
 
-
 @import "color";
 @import "mix";
 @import "animate";
-
-@include animate(fadeInUp);

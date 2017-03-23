@@ -20,13 +20,11 @@ class UserService {
 
         createCookie('apiToken', res.token, 1)
         createCookie('username', body.username, 1)
+        createCookie('language', body.language, 1)
 
         let out = {}
         out.id = res.id
         out.status = Number(res.status)
-        out.main_wallet = Number(res.money)
-        out.playername = res.name
-        out.withdrawPW = res.pwd
         out.token = res.token
         return resolve(out)
       }).catch((err) => {
@@ -59,6 +57,19 @@ class UserService {
     })
   }
 
+  getFieldList = ({context}) => {
+    return new Promise((resolve, reject) => {
+      return xhr({
+        method: 'get',
+        url: 'agent/field_list',
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(ERROR_CODES[err.toString()] || err)
+      })
+    })
+  }
 }
 
 export default new UserService()

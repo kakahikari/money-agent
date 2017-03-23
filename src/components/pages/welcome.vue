@@ -1,11 +1,10 @@
 <template lang="pug">
-  section
-    p signup
+  div
+    span welcome
 </template>
 
 <script>
 export default {
-  name: 'auth__signup'
 }
 </script>
 

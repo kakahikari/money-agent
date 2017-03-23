@@ -39,7 +39,7 @@ let buildIcon = () => {
 
 let buildImage = () => {
   return gulp
-    .src(paths.images.src)
+    .src(paths.images.src + '**')
     .pipe(prettyError())
     .pipe(imagemin())
     .pipe(gulp.dest(paths.images.dest))
