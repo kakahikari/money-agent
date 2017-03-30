@@ -4,7 +4,7 @@
       b-nav-item(@click="toggleMenu()")
         icon.menu-icon(name="bars")
     b-link.navbar-brand
-      span money-agent
+      router-link(":to"="{name:'index'}") money-agent
     b-nav.ml-auto(is-nav-bar)
       b-nav-item-dropdown(right-alignment @click="test()")
         template(slot="text")
@@ -24,13 +24,13 @@
 
     methods: {
       setLanguage (lang) {
-        this.$store.dispatch('setLanguage', lang)
+        const params = {context: this, language: lang}
+        this.$store.dispatch('setLanguage', params)
       },
       toggleMenu () {
         this.$emit('toggleMenu')
       },
       logout () {
-        console.log('logout')
         this.$root.logout()
       }
     }
@@ -41,8 +41,9 @@
   @import "scss/share";
 
   .navbar-brand {
-    span {
+    a {
       color: $reverse_color0;
+      text-decoration: none;
     }
   }
   .nav-item {

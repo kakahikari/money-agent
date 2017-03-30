@@ -1,13 +1,15 @@
 import xhr from './xhr/'
 import { ERROR_CODES } from './xhr/config'
-import { createCookie, readCookie, eraseCookie } from './'
 
-class MemberService {
-  getMemberList = ({context}) => {
+class UiService {
+  getFieldList = ({context, language}) => {
     return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('lang_code', language)
       return xhr({
-        url: 'agent/member/list',
-        method: 'get',
+        method: 'post',
+        url: 'agent/field_list',
+        data,
         context
       }).then((res) => {
         return resolve(res)
@@ -17,24 +19,22 @@ class MemberService {
     })
   }
 
-  getMemberWallet = ({context, username}) => {
+  getTemplate = ({context, actionKey}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
-      data.append('user', username)
-
+      data.append('action_key', actionKey)
       return xhr({
-        url: 'agent/member/wallet_info',
         method: 'post',
+        url: 'agent/column',
         data,
         context
       }).then((res) => {
-        return resolve(res.wallet)
+        return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }
-
 }
 
-export default new MemberService()
+export default new UiService()

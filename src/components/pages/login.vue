@@ -3,23 +3,23 @@
     section.layout__container
       .card.text-center
         .card-block
-          h4.card-title {{ $root.i18n('Login', formData.language) }}
+          h4.card-title {{ $root.i18n('Login', language) }}
           form(@submit.prevent="login(formData)")
             .form-group
-              b-form-input(":placeholder"="$root.i18n('Account', formData.language)" v-model="formData.username")
-              b-form-input(type="password" ":placeholder"="$root.i18n('Password', formData.language)" v-model="formData.password")
+              b-form-input(":placeholder"="$root.i18n('Account', language)" v-model="formData.username")
+              b-form-input(type="password" ":placeholder"="$root.i18n('Password', language)" v-model="formData.password")
               label Language
-              select.form-control.col(v-model="formData.language")
+              select.form-control.col(v-model="language")
                 option(value="cn") 中文
                 option(value="en") English
-            button.btn.btn-primary(type="submit") {{ $root.i18n('Submit', formData.language) }}
+            button.btn.btn-primary(type="submit") {{ $root.i18n('Submit', language) }}
           .card-text.text-right
             small.text-muted v{{ VERSION }}
 </template>
 
 <script>
-import { DEFAULT_LNG } from 'src/config'
 import { _VERSION } from 'src/version'
+import { DEFAULT_LNG } from 'src/config'
 
 export default {
   name: 'login',
@@ -27,26 +27,41 @@ export default {
   data () {
     return {
       VERSION: _VERSION,
+      language: '',
       formData: {
         username: '',
-        password: '',
-        language: DEFAULT_LNG
+        password: ''
       }
     }
   },
 
+  mounted () {
+    this.$nextTick(() => {
+      this.default()
+    })
+  },
+
   watch: {
     language (val) {
-      this.$store.dispatch('setLanguage', val)
+      const params = {context: this, language: val}
+      this.$store.dispatch('setLanguage', params)
     }
   },
 
   methods: {
+    default () {
+      this.language = this.$store.state.AUTH.language
+      if (this.language === '') {
+        this.language = DEFAULT_LNG
+      }
+      this.formData = {
+        username: '',
+        password: ''
+      }
+    },
     login (formData) {
       this.$root.login(formData).then((res) => {
         return this.$router.replace({path: '/'})
-      }).catch((err) => {
-        console.log(err)
       })
     }
   }

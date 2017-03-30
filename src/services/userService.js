@@ -20,15 +20,15 @@ class UserService {
 
         createCookie('apiToken', res.token, 1)
         createCookie('username', body.username, 1)
-        createCookie('language', body.language, 1)
 
         let out = {}
         out.id = res.id
         out.status = Number(res.status)
         out.token = res.token
         return resolve(out)
-      }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
+      })
+      .catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }
@@ -52,21 +52,7 @@ class UserService {
         return resolve(res)
       }).catch((err) => {
         removeToken()
-        return reject(ERROR_CODES[err.toString()] || err)
-      })
-    })
-  }
-
-  getFieldList = ({context}) => {
-    return new Promise((resolve, reject) => {
-      return xhr({
-        method: 'get',
-        url: 'agent/field_list',
-        context
-      }).then((res) => {
-        return resolve(res)
-      }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }

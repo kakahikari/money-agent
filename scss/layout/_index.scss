@@ -3,10 +3,11 @@
 // @import "reset-ui";
 
 .whole-container {
-  // 
+  //
 }
 
 .layout__viewport {
+  position: relative;
   // padding-top: $layout_fixedHeight + em($marqueeHeight);
   // padding-bottom: $layout_fixedHeight;
 }

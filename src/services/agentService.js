@@ -1,5 +1,9 @@
 import xhr from './xhr/'
+import helper from 'helper'
+import store from 'stores'
 import { ERROR_CODES } from './xhr/config'
+
+// const LANGUAGE = store.state.AUTH.language
 
 class AgentService {
   getAgentList = ({context}) => {
@@ -10,9 +14,10 @@ class AgentService {
         context
       }).then((res) => {
         return resolve(res)
-      }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
       })
+      // .catch((err) => {
+      //   return reject(helper.i18n(ERROR_CODES[err.toString()] || err, LANGUAGE))
+      // })
     })
   }
 
@@ -25,7 +30,7 @@ class AgentService {
       }).then((res) => {
         return resolve(res)
       }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }

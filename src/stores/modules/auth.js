@@ -1,14 +1,15 @@
 import { createCookie, readCookie } from 'services/'
 import UserService from 'services/userService'
+import UiService from 'services/uiService'
 import MAIN from '../'
-import { LANGUAGE, CURRENCY } from 'src/xhrConfig'
 
 const state = {
   token: '',
   status: 0,
   username: '',
   language: '',
-  currency: ''
+  currency: '',
+  sideMenu: []
 }
 
 const mutations = {
@@ -16,8 +17,7 @@ const mutations = {
     state.token = ''
     state.status = 0
     state.username = ''
-    state.language = LANGUAGE
-    state.currency = CURRENCY
+    state.sideMenu = []
   },
   SET_AUTH_TOKEN (state, payload) {
     state.token = payload
@@ -30,6 +30,9 @@ const mutations = {
   },
   SET_AUTH_LANGUAGE (state, payload) {
     state.language = payload
+  },
+  SET_AUTH_SIDEMENU (state, payload) {
+    state.sideMenu = payload
   }
 }
 
@@ -43,7 +46,8 @@ const actions = {
         MAIN.commit('SET_AUTH_STATUS', 1)
 
         return resolve(res)
-      }).catch((err) => {
+      })
+      .catch((err) => {
         return reject(err)
       })
     })
@@ -51,16 +55,30 @@ const actions = {
   logout (store, param) {
     MAIN.dispatch('ERASE_COOKIES')
   },
+  getSideMenu (store, param) {
+    return new Promise((resolve, reject) => {
+      UiService.getFieldList(param).then((res) => {
+        MAIN.dispatch('setSideMenu', res)
+      })
+      .catch((err) => {
+        return reject(err)
+      })
+    })
+  },
   async checkStatus (store, param) {
     const apiToken = await readCookie('apiToken')
+    const username = await readCookie('username')
+    const language = await readCookie('language')
+
     if (apiToken) {
       MAIN.commit('SET_AUTH_TOKEN', apiToken)
       MAIN.commit('SET_AUTH_STATUS', 1)
+      const params = { context: param, language: language }
+      MAIN.dispatch('getSideMenu', params)
     }
-    const username = await readCookie('username')
+
     if (username) MAIN.commit('SET_AUTH_USERNAME', username)
-    const language = await readCookie('language')
-    if (username) MAIN.commit('SET_AUTH_LANGUAGE', language)
+    if (language) MAIN.commit('SET_AUTH_LANGUAGE', language)
   },
   async setUser (store, param) {
     const apiToken = await readCookie('apiToken')
@@ -78,9 +96,18 @@ const actions = {
   setAuthUsername (store, param) {
     store.commit('SET_AUTH_USERNAME', param)
   },
-  setLanguage (store, param) {
-    createCookie('language', param, 1)
-    store.commit('SET_AUTH_LANGUAGE', param)
+  async setLanguage (store, param) {
+    const apiToken = await readCookie('apiToken')
+
+    if (apiToken) {
+      MAIN.dispatch('getSideMenu', param)
+    }
+    const { language } = param
+    createCookie('language', language, 100)
+    store.commit('SET_AUTH_LANGUAGE', language)
+  },
+  setSideMenu (store, param) {
+    store.commit('SET_AUTH_SIDEMENU', param)
   }
 }
 

@@ -1,45 +1,48 @@
+import helper from 'helper'
+import store from 'stores'
+
 export const xhrTimeout = 15000
-export const LANGUAGE = 'cn'
-export const CURRENCY = 'CNY'
 
 export const errorCodes = {
   '0': 'success',
-  '1': '栏位格式错误',
-  '2': '发生未知的错误',
-  '1001': '帐号已存在',
-  '1002': '帐号含有中文或符号',
-  '1003': '信箱重复',
-  '1004': '电话重复',
-  '1005': '请先登入',
-  '1006': '请先登入',
-  '1007': '停用',
-  '1008': '密码错误',
-  '1009': '新旧密码一样',
-  '2001': '银行帐号重复',
-  '2002': '会员存款受限制',
-  '2003': '帐号不存在',
-  '2004': '存款失败',
-  '2005': '取款失败',
-  '2006': '钱包锁定',
-  '2007': '金额不足',
-  '2008': '尚有一笔提款未完成',
-  '3001': '设定档读取失败',
+  '1': 'format error',
+  '2': 'unknown error',
+  '1001': 'this account already exists',
+  '1002': 'account contains Chinese characters or symbols',
+  '1003': 'this email has been registered',
+  '1004': 'this phone has been registered',
+  '1005': 'please login first',
+  '1006': 'please login first',
+  '1007': 'suspended',
+  '1008': 'password error',
+  '1009': 'new password must be different from old password',
+  '2001': 'this bank account has been registered',
+  '2002': 'member deposit has been restricted',
+  '2003': 'nonexistent account',
+  '2004': 'deposit failed',
+  '2005': 'withdrawal failed',
+  '2006': 'withdrawal failed',
+  '2007': 'withdrawal failed',
+  '2008': 'one withdrawal remains incomplete',
+  '3001': 'failed to load settings',
+  '4001': 'you are quitting the game',
   //
-  'v-close': '游戏关闭中',
-  'v-game-group-not-open': '该游戏群尚未开放',
-  'v-no-result': '查无资料',
-  'v-timeout': '连线逾时',
-  'v-need-withdrawPW': '请先设定取款密码',
-  'v-need-profile': '请先设定个人基本信息',
-  'v-no-token': '登入失败',
+  'v-close': 'you are quitting the game',
+  'v-game-group-not-open': 'this game category has not been made available',
+  'v-no-result': 'no data',
+  'v-timeout': 'connection overtime',
+  'v-need-withdrawPW': 'please set your withdrawal password',
+  'v-need-profile': 'please setup your basic information',
+  'v-no-token': 'login failed',
+  'v-need-login': 'please login first',
   //
-  'http-0': 'API 服务无回应 (ERR_CONNECTION_REFUSED)',
-  'http-404': 'API 服务无回应',
-  'http-500': 'API 服务连线错误'
+  'http-0': 'API server not responding (ERR_CONNECTION_REFUSED)',
+  'http-404': 'API server not responding',
+  'http-500': 'API connection error'
 }
 
 export const walletList = {
-  '-1': '系统派发',
+  '-1': 'Syetem',
   '0': 'Wallet',
   '6': 'MG',
   '12': 'CQ9',

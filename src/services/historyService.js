@@ -11,7 +11,7 @@ class HistoryService {
       }).then((res) => {
         return resolve(res)
       }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }
@@ -25,7 +25,7 @@ class HistoryService {
       }).then((res) => {
         return resolve(res)
       }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }
@@ -44,7 +44,7 @@ class HistoryService {
       }).then((res) => {
         return resolve(res)
       }).catch((err) => {
-        return reject(ERROR_CODES[err.toString()] || err)
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
       })
     })
   }

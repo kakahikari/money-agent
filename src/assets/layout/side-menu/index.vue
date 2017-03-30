@@ -2,19 +2,22 @@
   nav
     div.text-muted.nav-title {{ $root.i18n('Navigation') }}
     ul.nav.nav-pills.flex-column
-      template(v-for="item in list")
+      template(v-for="item in $store.state.AUTH.sideMenu")
         node
           template(slot="icon")
             icon(":name"="iconList[item.name]")
           template(slot="text") {{ item.text }}
           template(slot="child" v-if="item.child.length > 0")
             template(v-for="child in item.child")
-              li.nav-item__child__link("v-waves.block"="") {{ child.text }}
+              li.nav-item__child__link(
+                @click="action(child.action_key)"
+                "v-waves.block"=""
+              ) {{ child.text }}
 </template>
 
 <script>
   import node from './node'
-  import UserService from 'services/userService'
+  import UiService from 'services/uiService'
   import helper from 'helper'
 
   export default {
@@ -22,7 +25,6 @@
 
     data () {
       return {
-        list: [],
         iconList: {
           member: 'user',
           finance: 'money',
@@ -33,16 +35,16 @@
       }
     },
 
-    mounted () {
-      this.$nextTick(() => {
-        const params = {context: this}
-        UserService.getFieldList(params).then((res) => {
-          this.list = res
+    methods: {
+      action (key) {
+        const params = {context: this, actionKey: key}
+        UiService.getTemplate(params).then((res) => {
+          this.$router.push({ name: 'do', params: {templateName: res.template, inputs: res.inputs} })
         })
         .catch((err) => {
-          helper.log(err)
+          this.$root.showToast({type: 'warning', content: err})
         })
-      })
+      }
     },
 
     components: {
