@@ -7,8 +7,8 @@
   "scripts": {
     "clean": "rm -rf node_modules/* && rm -rf dist/*",
     "getGulp": "yarn global add gulpjs/gulp.git#4.0",
-    "init": "yarn run clean && yarn run getGulp && yarn install && node serVersion",
-    "devEnv": "node setConfig '/api' 'nginx.libra168.com'",
+    "init": "yarn run clean && yarn run getGulp && yarn install && node setVersion",
+    "devEnv": "node setConfig '/api' 'nginx.libra168.com' && node setVersion",
     "idrEnv": "node setConfig 'http://grape.api' 'nginx.libra168.com'",
     "dev": "node build/dev-server.js",
     "build": "node setVersion && rm -rf dist/* && gulp build:styles && node build/build.js && gulp",
