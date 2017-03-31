@@ -1,6 +1,6 @@
 import xhr from './xhr/'
 import { ERROR_CODES } from './xhr/config'
-import { createCookie, readCookie, eraseCookie } from './'
+import { createCookie, eraseCookie } from './'
 
 class UserService {
   login = ({context, body}) => {

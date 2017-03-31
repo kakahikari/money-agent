@@ -28,7 +28,7 @@ const xhr = async ({ context, url = '/', method = 'get', data = null, needToken 
       }
 
       console.warn && console.warn(ERROR_CODES[res.data.error_code.toString()])
-      // if (res.error_code === '1006') context.$root.default && context.$root.default()
+      if (res.data.error_code === '1006') context.$root.default && context.$root.default()
       return reject(res.data.error_code)
     })
     .catch((error) => {
