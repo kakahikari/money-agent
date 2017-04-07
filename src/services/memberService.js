@@ -3,7 +3,34 @@ import { ERROR_CODES } from './xhr/config'
 import { createCookie, readCookie, eraseCookie } from './'
 
 class MemberService {
-  getMemberList = ({context}) => {
+  getMemberList = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('agent_id', body.agent_id)
+      data.append('rate_level', body.rate_level)
+      data.append('user_status', body.user_status)
+      data.append('user_account', body.user_account)
+      data.append('user_name', body.user_name)
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      data.append('login_ip', body.login_ip)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/member/search',
+        method: 'post',
+        data,
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getAllMemberList = ({context}) => {
     return new Promise((resolve, reject) => {
       return xhr({
         url: 'agent/member/list',

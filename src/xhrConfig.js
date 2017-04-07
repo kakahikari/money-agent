@@ -1,6 +1,3 @@
-import helper from 'helper'
-import store from 'stores'
-
 export const xhrTimeout = 15000
 
 export const errorCodes = {

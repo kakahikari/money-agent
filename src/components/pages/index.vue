@@ -8,7 +8,7 @@
             .col.left-nav
               side-menu
               .version.text-muted v{{ VERSION }}
-        section.layout__container.col-9
+        section.layout__container.col-10
           transition(name="fade" mode="out-in")
             router-view
 </template>

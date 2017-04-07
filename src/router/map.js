@@ -5,7 +5,15 @@ export const routes = [
     redirect: {name: 'index'},
     children: [
       { path: 'index', component: require('pages/welcome'), name: 'index', meta: { requiresAuth: true } },
-      { path: 'do/:templateName', component: require('pages/templates'), name: 'do', meta: { requiresAuth: true } }
+      {
+        path: 'do/',
+        component: require('pages/templates'),
+        name: 'do',
+        meta: { requiresAuth: true },
+        children: [
+          { path: 'memberList', name: 'memberList', component: require('pages/templates/memberList'), meta: { requiresAuth: true } }
+        ]
+      }
     ]
   },
   { path: '/login', component: require('pages/login'), name: 'login' },

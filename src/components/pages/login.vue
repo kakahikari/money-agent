@@ -4,7 +4,7 @@
       .card.text-center
         .card-block
           h4.card-title {{ $root.i18n('Login', language) }}
-          form(@submit.prevent="login(formData)")
+          v-form(@submit="login(formData)")
             .form-group
               b-form-input(":placeholder"="$root.i18n('Account', language)" v-model="formData.username")
               b-form-input(type="password" ":placeholder"="$root.i18n('Password', language)" v-model="formData.password")

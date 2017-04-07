@@ -3,6 +3,14 @@ import Vue from 'vue'
 import router from './router'
 import store from 'stores'
 
+// filters
+Vue.filter('currency', function (value) {
+  return value.currency({})
+})
+Vue.filter('toNumber', function (value) {
+  return value.toNumber({})
+})
+
 // UI
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -12,6 +20,8 @@ Vue.use(Waves)
 // components
 import icon from 'resources/icon'
 Vue.component('icon', icon)
+import vForm from 'layout/components/v-form'
+Vue.component('vForm', vForm)
 import vToast from 'resources/v-toast'
 
 Vue.config.productionTip = false

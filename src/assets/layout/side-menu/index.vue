@@ -10,7 +10,7 @@
           template(slot="child" v-if="item.child.length > 0")
             template(v-for="child in item.child")
               li.nav-item__child__link(
-                @click="action(child.action_key)"
+                @click="action(child.action_key, child.text)"
                 "v-waves.block"=""
               ) {{ child.text }}
 </template>
@@ -18,10 +18,9 @@
 <script>
   import node from './node'
   import UiService from 'services/uiService'
-  import helper from 'helper'
 
   export default {
-    name: 'side-menu__index',
+    name: 'side-menu',
 
     data () {
       return {
@@ -36,10 +35,10 @@
     },
 
     methods: {
-      action (key) {
+      action (key, pageTitle) {
         const params = {context: this, actionKey: key}
         UiService.getTemplate(params).then((res) => {
-          this.$router.push({ name: 'do', params: {templateName: res.template, inputs: res.inputs} })
+          this.$router.push({ name: res.template, params: {actionName: res.template, inputs: res.inputs, pageTitle: pageTitle} })
         })
         .catch((err) => {
           this.$root.showToast({type: 'warning', content: err})
