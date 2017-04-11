@@ -34,6 +34,12 @@
       }
     },
 
+    mounted () {
+      if (this.$store.state.AUTH.sideMenu.length === 0) {
+        this.$store.dispatch('getSideMenu', {context: this})
+      }
+    },
+
     methods: {
       action (key, pageTitle) {
         const params = {context: this, actionKey: key}

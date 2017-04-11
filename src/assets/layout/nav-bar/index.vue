@@ -4,7 +4,7 @@
       b-nav-item(@click="toggleMenu()")
         icon.menu-icon(name="bars")
     b-link.navbar-brand
-      router-link(":to"="{name:'index'}") money-agent
+      router-link(":to"="{name:'index'}") Money-Agent
     b-nav.ml-auto(is-nav-bar)
       b-nav-item-dropdown(right-alignment @click="test()")
         template(slot="text")

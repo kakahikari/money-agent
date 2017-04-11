@@ -35,7 +35,7 @@ export const Syetem = new Vue({
   methods: {
     default () {
       this.$store.dispatch('ERASE_COOKIES')
-      this.$router.replace({path: '/'})
+      this.$router.replace({name: 'login'})
     },
     async onReady () {
       await this.$store.dispatch('checkStatus', {context: this})

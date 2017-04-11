@@ -1,6 +1,6 @@
 @import "scss/share";
 
-$_padding: 2.5em;
+$_padding: 2.25em;
 
 nav {
   padding: 2.142em 0;
@@ -9,7 +9,7 @@ nav {
 .nav-title {
   display: flex;
   align-items: center;
-  height: 3.214em;
+  min-height: 3.214em;
   padding: 0 $_padding;
   letter-spacing: .035em;
   pointer-events: none;
@@ -32,7 +32,7 @@ ul {
 .nav-item__child__link {
   display: flex;
   align-items: center;
-  height: 3.214em;
+  min-height: 3.214em;
   padding: 0 $_padding;
 }
 

@@ -55,9 +55,12 @@ const actions = {
   logout (store, param) {
     MAIN.dispatch('ERASE_COOKIES')
   },
-  getSideMenu (store, param) {
+  async getSideMenu (store, param) {
+    const language = await readCookie('language')
+
     return new Promise((resolve, reject) => {
-      UiService.getFieldList(param).then((res) => {
+      const params = { context: param, language: language }
+      UiService.getFieldList(params).then((res) => {
         MAIN.dispatch('setSideMenu', res)
       })
       .catch((err) => {
@@ -73,8 +76,6 @@ const actions = {
     if (apiToken) {
       MAIN.commit('SET_AUTH_TOKEN', apiToken)
       MAIN.commit('SET_AUTH_STATUS', 1)
-      const params = { context: param, language: language }
-      MAIN.dispatch('getSideMenu', params)
     }
 
     if (username) MAIN.commit('SET_AUTH_USERNAME', username)
@@ -99,12 +100,12 @@ const actions = {
   async setLanguage (store, param) {
     const apiToken = await readCookie('apiToken')
 
-    if (apiToken) {
-      MAIN.dispatch('getSideMenu', param)
-    }
     const { language } = param
     createCookie('language', language, 100)
     store.commit('SET_AUTH_LANGUAGE', language)
+    if (apiToken) {
+      MAIN.dispatch('getSideMenu', param)
+    }
   },
   setSideMenu (store, param) {
     store.commit('SET_AUTH_SIDEMENU', param)

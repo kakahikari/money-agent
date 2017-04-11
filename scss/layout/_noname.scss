@@ -1,5 +1,5 @@
 * {
-  @include selectColor(lighten($bgc, 10), $reverse_bgc);
+  // @include selectColor(lighten($bgc, 10), $reverse_bgc);
   box-sizing: border-box;
 }
 
