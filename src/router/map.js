@@ -11,7 +11,9 @@ export const routes = [
         name: 'do',
         meta: { requiresAuth: true },
         children: [
-          { path: 'memberList', name: 'memberList', component: require('pages/templates/memberList'), meta: { requiresAuth: true } }
+          { path: 'memberList', name: 'memberList', component: require('pages/templates/memberList'), meta: { requiresAuth: true } },
+          { path: 'depositList', name: 'depositList', component: require('pages/templates/depositList'), meta: { requiresAuth: true } },
+          { path: 'withdrawList', name: 'withdrawList', component: require('pages/templates/withdrawList'), meta: { requiresAuth: true } }
         ]
       }
     ]

@@ -44,6 +44,16 @@
       action (key, pageTitle) {
         const params = {context: this, actionKey: key}
         UiService.getTemplate(params).then((res) => {
+          let selectList = res.inputs.filter(node => node.type === 'select')
+          for (var i = 0; i < selectList.length; i++) {
+            let options = selectList[i].options
+            for (var j = 0; j < options.length; j++) {
+              options[j].text = this.$root.i18n(options[j].text)
+            }
+            if (selectList[i].options !== undefined) {
+              selectList[i].options.unshift({text: '', value: ''})
+            }
+          }
           this.$router.push({ name: res.template, params: {actionName: res.template, inputs: res.inputs, pageTitle: pageTitle} })
         })
         .catch((err) => {

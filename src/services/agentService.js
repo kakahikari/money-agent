@@ -1,9 +1,5 @@
 import xhr from './xhr/'
-import helper from 'helper'
-import store from 'stores'
 import { ERROR_CODES } from './xhr/config'
-
-// const LANGUAGE = store.state.AUTH.language
 
 class AgentService {
   getAgentList = ({context}) => {
@@ -15,9 +11,9 @@ class AgentService {
       }).then((res) => {
         return resolve(res)
       })
-      // .catch((err) => {
-      //   return reject(helper.i18n(ERROR_CODES[err.toString()] || err, LANGUAGE))
-      // })
+      .catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
     })
   }
 
@@ -26,6 +22,50 @@ class AgentService {
       return xhr({
         url: 'agent/game_company',
         method: 'get',
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getBackBetReport = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('agent_id', body.agent_id)
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      // data.append('page_size', body.page_size)
+      // data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/back_bet_computing',
+        method: 'post',
+        data,
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getInfoReport = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('agent_id', body.agent_id)
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      // data.append('page_size', body.page_size)
+      // data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/info',
+        method: 'post',
+        data,
         context
       }).then((res) => {
         return resolve(res)

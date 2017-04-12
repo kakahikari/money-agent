@@ -4,16 +4,17 @@
       .card-text.text-right
         .text-muted {{ $root.i18n('Total number of records') }}: {{ total }}
       b-table.table-bordered.table-sm(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
-        template(slot="status" scope="item")
-          | {{ item.value? $root.i18n('activate') : $root.i18n('forbid') }}
-        template(slot="deposit_withdrawl" scope="item")
-          template(v-if="item.sum_in_money")
-            | {{ item.sum_in_money | toNumber }}
-          template(v-else) 0
-          |  /
-          template(v-if="item.sum_out_money")
-            | {{ item.sum_out_money | toNumber }}
-          template(v-else) 0
+        template(slot="order_status" scope="item")
+          template(v-if="item.value === '1'")
+            | {{ $root.i18n('validated') }}
+          template(v-else-if="item.value === '2'")
+            | {{ $root.i18n('rejected') }}
+          template(v-else-if="item.value === '3'")
+            | {{ $root.i18n('charged') }}
+          template(v-else)
+            | {{ $root.i18n('pending validation') }}
+        template(slot="trans_way" scope="item")
+            | {{ $root.i18n(transWayList[item.value]) }}
         template(slot="money" scope="item")
           | {{ item.value | toNumber }}
       .row.justify-content-center(v-if="this.total>0")
@@ -22,10 +23,11 @@
 
 <script>
   import pagination from './pagination'
-  import MemberService from 'services/memberService'
+  import HistoryService from 'services/historyService'
+  import { transWayList } from 'src/xhrConfig'
 
   export default {
-    name: 'templates__memberList',
+    name: 'templates__depositList',
 
     data () {
       return {
@@ -34,17 +36,17 @@
         list: [],
         fields: {
           agent: { label: this.$root.i18n('agent'), sortable: true },
-          rate_level: { label: this.$root.i18n('rebate level'), sortable: true },
-          user: { label: this.$root.i18n('membership account'), sortable: true },
-          name: { label: this.$root.i18n('member'), sortable: true },
-          status: { label: this.$root.i18n('user status'), sortable: true },
-          register_date: { label: this.$root.i18n('register time'), sortable: true },
-          login_date: { label: this.$root.i18n('last login time'), sortable: true },
-          login_ip: { label: this.$root.i18n('last login IP'), sortable: true },
-          deposit_withdrawl: { label: this.$root.i18n('total deposit amount/total withdrawl amount') },
-          money: { label: this.$root.i18n('account balance'), sortable: true },
-          note: { label: this.$root.i18n('note') }
-        }
+          user_account: { label: this.$root.i18n('membership account'), sortable: true },
+          user_name: { label: this.$root.i18n('member'), sortable: true },
+          add_date: { label: this.$root.i18n('add time'), sortable: true },
+          trans_way: { label: this.$root.i18n('trans way'), sortable: true },
+          company_bank: { label: this.$root.i18n('company bank'), sortable: true },
+          review_account: { label: this.$root.i18n('review account'), sortable: true },
+          grant_account: { label: this.$root.i18n('grant account'), sortable: true },
+          money: { label: this.$root.i18n('amount'), sortable: true },
+          order_status: { label: this.$root.i18n('order status'), sortable: true }
+        },
+        transWayList: transWayList
       }
     },
 
@@ -71,15 +73,15 @@
       doRequest (formData, pageNum = 1) {
         const body = {}
         body.agent_id = formData.agent_id
-        body.login_ip = formData.login_ip
+        body.user_account = formData.user_account
+        body.order_status = formData.order_status
+        body.company_bank = formData.company_bank
+        body.trans_way = formData.trans_way
         body.page_size = formData.page_size
         body.start_date = formData.start_date
         body.end_date = formData.end_date
-        body.user_account = formData.user_account
-        body.user_name = formData.user_name
-        body.user_status = formData.user_status
         body.page_num = pageNum
-        MemberService.getMemberList({context: this, body: body}).then((res) => {
+        HistoryService.getDeposit({context: this, body: body}).then((res) => {
           this.currentPage = pageNum
           this.list = res.list
           this.total = res.total
@@ -87,6 +89,7 @@
       },
       pageChange (val) {
         if (val <= this.totalPage && val > 0) {
+          this.currentPage = val
           this.doRequest(this.formData, val)
         }
       }

@@ -7,7 +7,7 @@ class MemberService {
     return new Promise((resolve, reject) => {
       let data = new FormData()
       data.append('agent_id', body.agent_id)
-      data.append('rate_level', body.rate_level)
+      data.append('rate_level', '')
       data.append('user_status', body.user_status)
       data.append('user_account', body.user_account)
       data.append('user_name', body.user_name)

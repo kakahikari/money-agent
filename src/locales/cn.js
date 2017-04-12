@@ -16,6 +16,15 @@ export default {
     'end date': '结束时间',
     'login ip': '最后登入IP',
     'page size': '每页笔数',
+    'trans way': '交易方式',
+    'company bank': '公司银行帐号',
+    'order number': '订单编号',
+    'order status': '订单状态',
+    'game company': '游戏平台',
+    'pending validation': '待审核',
+    'validated': '已审核',
+    'rejected': '拒绝',
+    'charged': '已核发',
     // table fields
     'agent': '代理',
     'rebate level': '返水等级',
@@ -30,6 +39,10 @@ export default {
     'total deposit amount/total withdrawl amount': '存款总额／取款总额',
     'account balance': '帐户余额',
     'note': '备注',
+    'review account': '审核帐号',
+    'grant account': '派发帐号',
+    'add time': '提交时间',
+    'amount': '金额',
     // error codes
     'success': 'success',
     'format error': '栏位格式错误',
@@ -67,6 +80,15 @@ export default {
     'API server not responding': 'API 服务无回应',
     'API connection error': 'API 服务连线错误',
     // wallet
-    'System': '系统派发'
+    'System': '系统派发',
+    // trans way
+    'transfer': '线下存款',
+    'Overseas Chinese Union': '银联支付',
+    'Wechat bank card': '微支付',
+    'Alipay': '支付宝',
+    'AllPay': '欧付宝',
+    'Ecpay': '绿界',
+    'deposit without bankbook': '临柜付款',
+    'IPS Pay': '環迅'
   }
 }

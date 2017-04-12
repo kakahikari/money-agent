@@ -16,6 +16,15 @@ export default {
     'end date': 'end date',
     'login ip': 'login IP',
     'page size': 'page size',
+    'trans way': 'trans way',
+    'company bank': 'company bank account',
+    'order number': 'order number',
+    'order status': 'order status',
+    'game company': 'game company',
+    'pending validation': 'pending validation',
+    'validated': 'validated',
+    'rejected': 'rejected',
+    'charged': 'charged',
     // table fields
     'agent': 'agent',
     'rebate level': 'rebate level',
@@ -30,6 +39,10 @@ export default {
     'total deposit amount/total withdrawl amount': 'total deposit amount/total withdrawl amount',
     'account balance': 'account balance',
     'note': 'note',
+    'review account': 'review account',
+    'grant account': 'grant account',
+    'add time': 'add time',
+    'amount': 'amount',
     // error codes
     'success': 'success',
     'format error': 'format error',
@@ -62,6 +75,15 @@ export default {
     'API server not responding': 'API server not responding',
     'API connection error': 'API connection error',
     // wallet
-    'System': 'System'
+    'System': 'System',
+    // trans way
+    'transfer': 'transfer',
+    'Overseas Chinese Union': 'Overseas Chinese Union',
+    'Wechat bank card': 'Wechat bank card',
+    'Alipay': 'Alipay',
+    'AllPay': 'AllPay',
+    'Ecpay': 'Ecpay',
+    'deposit without bankbook': 'deposit without bankbook',
+    'IPS Pay': 'IPS Pay'
   }
 }

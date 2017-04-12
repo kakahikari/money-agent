@@ -48,3 +48,14 @@ export const walletList = {
   '17': 'GT',
   '18': 'BBin'
 }
+
+export const transWayList = {
+  '0': 'transfer',
+  '1': 'Overseas Chinese Union',
+  '2': 'Wechat bank card',
+  '3': 'Alipay',
+  '4': 'AllPay',
+  '5': 'Ecpay',
+  '7': 'deposit without bankbook',
+  '8': 'IPS Pay'
+}

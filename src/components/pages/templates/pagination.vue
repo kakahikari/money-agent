@@ -22,10 +22,12 @@ export default {
 
   props: {
     value: {
-      type: Number
+      type: Number,
+      default: 0
     },
     totalPage: {
-      type: Number
+      type: Number,
+      default: 0
     },
     displayPage: {
       type: Number,
@@ -35,7 +37,7 @@ export default {
 
   methods: {
     pageChange (val) {
-      return this.$emit('pageChange', val)
+      return this.$emit('pageChange', Number(val))
     }
   }
 }
