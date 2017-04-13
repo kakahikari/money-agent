@@ -97,12 +97,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  .nowrap {
-    white-space: nowrap;
-  }
-  .card-text {
-    margin-bottom: .5em;
-  }
-</style>

@@ -92,7 +92,7 @@
       pageChange (val) {
         if (val <= this.totalPage && val > 0) {
           this.currentPage = val
-          this.doRequest(this.formData)
+          this.doRequest(this.formData, val)
         }
       }
     },
@@ -102,12 +102,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  .nowrap {
-    white-space: nowrap;
-  }
-  .card-text {
-    margin-bottom: .5em;
-  }
-</style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-section
+section.templates
   h4.page-title {{ pageTitle }}
   .card
     .card-block
@@ -65,21 +65,3 @@ section
     }
   }
 </script>
-<style lang="scss" scoped>
-  .page-title {
-    margin-top: 1em;
-  }
-  .card {
-    margin: 1em 0;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-  .form-group {
-    display: inline-flex;
-    flex-direction: column;
-  }
-  label {
-    height: 1em;
-  }
-</style>
