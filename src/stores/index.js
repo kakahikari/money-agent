@@ -3,14 +3,12 @@ import { eraseCookie } from 'services'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import AUTH from './modules/auth'
-import AGENT from './modules/agent'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    AUTH,
-    AGENT
+    AUTH
   },
   actions: {
     ERASE_COOKIES ({commit}) {
@@ -18,11 +16,9 @@ export default new Vuex.Store({
       eraseCookie('username')
 
       commit('AUTH_DEFAULT')
-      commit('AGENT_DEFAULT')
     },
     SET_DEFAULT ({commit}) {
       commit('AUTH_DEFAULT')
-      commit('AGENT_DEFAULT')
     }
   }
 })
