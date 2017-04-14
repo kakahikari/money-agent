@@ -3,7 +3,7 @@
     .card-block
       .card-text.text-right
         .text-muted {{ $root.i18n('Total number of records') }}: {{ total }}
-      b-table.table-bordered.table-sm(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
+      b-table.table-bordered(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
         template(slot="status" scope="item")
           | {{ item.value? $root.i18n('activate') : $root.i18n('forbid') }}
         template(slot="deposit_withdrawl" scope="item")

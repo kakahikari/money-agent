@@ -5,10 +5,10 @@
       .row
         transition(name="menu-slide")
           template(v-if="!menuHidden")
-            .col.left-nav
+            .col.col-2.left-nav
               side-menu
               .version.text-muted v{{ VERSION }}
-        section.layout__container.col-10
+        section.layout__container.col(":class"="{'col-10': !menuHidden}")
           transition(name="fade" mode="out-in")
             router-view
 </template>

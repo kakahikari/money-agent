@@ -3,7 +3,7 @@
     .card-block
       .card-text.text-right
         .text-muted {{ $root.i18n('Total number of records') }}: {{ total }}
-      b-table.table-bordered.table-sm(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
+      b-table.table-bordered(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
         template(slot="order_status" scope="item")
           template(v-if="item.value === '1'")
             | {{ $root.i18n('validated') }}
