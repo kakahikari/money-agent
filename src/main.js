@@ -8,7 +8,12 @@ Vue.filter('currency', function (value) {
   return value.currency({})
 })
 Vue.filter('toNumber', function (value) {
-  return value.toNumber({})
+  let out = value
+  if (value === null) return 0
+  if (typeof value !== String) {
+    out = value.toString()
+  }
+  return out.toNumber({})
 })
 
 // UI
