@@ -39,7 +39,7 @@ export const errorCodes = {
 }
 
 export const walletList = {
-  '-1': 'Syetem',
+  '-1': 'System',
   '0': 'Wallet',
   '6': 'MG',
   '12': 'CQ9',

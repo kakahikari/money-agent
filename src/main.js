@@ -32,7 +32,7 @@ import vToast from 'resources/v-toast'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-export const Syetem = new Vue({
+export const System = new Vue({
   mounted () {
     this.$store.dispatch('SET_DEFAULT', {context: this})
   },

@@ -84,6 +84,9 @@
           this.list = res.list
           this.total = res.total
         })
+        .catch((err) => {
+          this.$root.showToast({type: 'warning', content: err})
+        })
       },
       pageChange (val) {
         if (val <= this.totalPage && val > 0) {
