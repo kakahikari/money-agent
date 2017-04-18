@@ -31,18 +31,14 @@ class AgentService {
     })
   }
 
-  getBackBetReport = ({context, body}) => {
+  getInfoListTotal = ({context, body}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
-      data.append('agent_id', body.agent_id)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
-      // data.append('page_size', body.page_size)
-      // data.append('page_num', body.page_num)
-
       return xhr({
-        url: 'agent/back_bet_computing',
-        method: 'post',
+        url: 'agent/info_total',
+        method: 'POST',
         data,
         context
       }).then((res) => {
@@ -53,14 +49,14 @@ class AgentService {
     })
   }
 
-  getInfoReport = ({context, body}) => {
+  getInfoList = ({context, body}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
       data.append('agent_id', body.agent_id)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
-      // data.append('page_size', body.page_size)
-      // data.append('page_num', body.page_num)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
 
       return xhr({
         url: 'agent/info',

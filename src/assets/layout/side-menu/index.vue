@@ -50,7 +50,7 @@
             for (var j = 0; j < options.length; j++) {
               options[j].text = this.$root.i18n(options[j].text)
             }
-            if (selectList[i].options !== undefined) {
+            if (selectList[i].options !== undefined && selectList[i].required !== 'true') {
               selectList[i].options.unshift({text: '', value: ''})
             }
           }

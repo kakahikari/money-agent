@@ -1,22 +1,18 @@
 import xhr from './xhr/'
 import { ERROR_CODES } from './xhr/config'
 
-class HistoryService {
-  getDeposit = ({context, body}) => {
+class ReportService {
+  getBackBetReport = ({context, body}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
       data.append('agent_id', body.agent_id)
-      data.append('user_account', body.user_account)
-      data.append('order_status', body.order_status)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
-      data.append('trans_way', body.trans_way)
-      data.append('company_bank', body.company_bank)
-      data.append('page_size', body.page_size)
-      data.append('page_num', body.page_num)
+      // data.append('page_size', body.page_size)
+      // data.append('page_num', body.page_num)
 
       return xhr({
-        url: 'agent/history/deposit/search',
+        url: 'agent/back_bet_computing',
         method: 'post',
         data,
         context
@@ -28,36 +24,18 @@ class HistoryService {
     })
   }
 
-  getAllDeposit = ({context}) => {
-    return new Promise((resolve, reject) => {
-      return xhr({
-        url: 'agent/history/deposit',
-        method: 'get',
-        context
-      }).then((res) => {
-        return resolve(res)
-      }).catch((err) => {
-        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
-      })
-    })
-  }
-
-  getWithdraw = ({context, body}) => {
+  getBetReportList = ({context, body}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
-      data.append('agent_id', body.agent_id)
+      data.append('game_code', body.game_company)
       data.append('user_account', body.user_account)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
-      data.append('trans_way', body.trans_way)
-      data.append('company_bank', body.company_bank)
-      data.append('order_num', body.order_num)
-      data.append('order_status', body.order_status)
       data.append('page_size', body.page_size)
       data.append('page_num', body.page_num)
 
       return xhr({
-        url: 'agent/history/withdraw/search',
+        url: 'agent/report/game',
         method: 'post',
         data,
         context
@@ -69,11 +47,18 @@ class HistoryService {
     })
   }
 
-  getAllWithdraw = ({context}) => {
+  getGameCompanyReportList = ({context, body}) => {
     return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
+
       return xhr({
-        url: 'agent/history/withdraw',
-        method: 'get',
+        url: 'agent/report/game_sum',
+        method: 'post',
+        data,
         context
       }).then((res) => {
         return resolve(res)
@@ -83,14 +68,59 @@ class HistoryService {
     })
   }
 
-  getRateList = ({context, body}) => {
+  getAgentReportList = ({context, body}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
       data.append('page_size', body.page_size)
       data.append('page_num', body.page_num)
 
       return xhr({
-        url: 'agent/rate_money',
+        url: 'agent/report/agent_sum',
+        method: 'post',
+        data,
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getMemberSumReportList = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/report/member_sum',
+        method: 'post',
+        data,
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getMemberSeparateReportList = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('user_account', body.user_account)
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/report/member_separate',
         method: 'post',
         data,
         context
@@ -103,4 +133,4 @@ class HistoryService {
   }
 }
 
-export default new HistoryService()
+export default new ReportService()

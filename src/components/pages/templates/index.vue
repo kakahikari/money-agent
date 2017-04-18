@@ -6,7 +6,8 @@ section.templates
       form(@submit.prevent="action()")
         template(v-for="input in inputs")
           .form-group.col-3
-            label {{ $root.i18n(input['label-name']) }}
+            label(v-if="input.required=='true'") *{{ $root.i18n(input['label-name']) }}
+            label(v-else) {{ $root.i18n(input['label-name']) }}
             b-form-select(v-if="input.type=='select'" ":options"="input.options" v-model="input.value")
             b-form-input(
               v-else
