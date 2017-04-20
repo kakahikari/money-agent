@@ -29,7 +29,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://grape.api/',
+        // target: 'http://grape.api/',
+        target: 'http://grape.sh56789.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
