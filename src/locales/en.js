@@ -25,6 +25,8 @@ export default {
     'validated': 'validated',
     'rejected': 'rejected',
     'charged': 'charged',
+    'promotion kind': 'promotion kind',
+    'promotion name': 'promotion name',
     // table fields
     'agent': 'agent',
     'rebate level': 'rebate level',
@@ -74,6 +76,10 @@ export default {
     'quarterly rebate': 'quarterly rebate',
     'issued': 'issued',
     'unissued': 'unissued',
+    'issued time': 'issued time',
+    'the number of participants': 'the number of participants',
+    'times of participation': 'times of participation',
+    'the total promotion points': 'the total promotion points',
     // error codes
     'success': 'success',
     'format error': 'format error',

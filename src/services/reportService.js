@@ -8,8 +8,8 @@ class ReportService {
       data.append('agent_id', body.agent_id)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
-      // data.append('page_size', body.page_size)
-      // data.append('page_num', body.page_num)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
 
       return xhr({
         url: 'agent/back_bet_computing',
@@ -121,6 +121,54 @@ class ReportService {
 
       return xhr({
         url: 'agent/report/member_separate',
+        method: 'post',
+        data,
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getPromotionRecordList = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('agent_id', body.agent_id)
+      data.append('user_account', body.user_account)
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      data.append('promotion_kind', body.promotion_kind)
+      data.append('promotion_name', body.promotion_name)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/promotion_record',
+        method: 'post',
+        data,
+        context
+      }).then((res) => {
+        return resolve(res)
+      }).catch((err) => {
+        return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
+      })
+    })
+  }
+
+  getPromotionReportList = ({context, body}) => {
+    return new Promise((resolve, reject) => {
+      let data = new FormData()
+      data.append('start_date', body.start_date)
+      data.append('end_date', body.end_date)
+      data.append('promotion_kind', body.promotion_kind)
+      data.append('promotion_name', body.promotion_name)
+      data.append('page_size', body.page_size)
+      data.append('page_num', body.page_num)
+
+      return xhr({
+        url: 'agent/promotion_history',
         method: 'post',
         data,
         context

@@ -21,6 +21,8 @@ export const routes = [
           { path: 'memberSeparateReport', name: 'memberSeparateReport', component: require('pages/templates/memberSeparateReport'), meta: { requiresAuth: true } },
           { path: 'agentReport', name: 'agentReport', component: require('pages/templates/agentReport'), meta: { requiresAuth: true } },
           { path: 'gameCompanyReport', name: 'gameCompanyReport', component: require('pages/templates/gameCompanyReport'), meta: { requiresAuth: true } },
+          { path: 'promotionRecordList', name: 'promotionRecordList', component: require('pages/templates/promotionRecordList'), meta: { requiresAuth: true } },
+          { path: 'promotionReportList', name: 'promotionReportList', component: require('pages/templates/promotionReportList'), meta: { requiresAuth: true } },
           { path: 'rateList', name: 'rateList', component: require('pages/templates/rateList'), meta: { requiresAuth: true } }
         ]
       }

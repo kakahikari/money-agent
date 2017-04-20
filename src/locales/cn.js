@@ -25,6 +25,8 @@ export default {
     'validated': '已审核',
     'rejected': '拒绝',
     'charged': '已核发',
+    'promotion kind': '优惠类别',
+    'promotion name': '优惠名称',
     // table fields
     'agent': '代理',
     'rebate level': '返水等级',
@@ -74,6 +76,10 @@ export default {
     'quarterly rebate': '季退',
     'issued': '派发',
     'unissued': '未派发',
+    'issued time': '派发时间',
+    'the number of participants': '参与人数',
+    'times of participation': '参与人次',
+    'the total promotion points': '优惠赠点总计',
     // error codes
     'success': 'success',
     'format error': '栏位格式错误',
