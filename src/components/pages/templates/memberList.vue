@@ -69,6 +69,7 @@
 
     methods: {
       doRequest (formData, pageNum = 1) {
+        this.list = []
         const body = {}
         body.agent_id = formData.agent_id
         body.login_ip = formData.login_ip

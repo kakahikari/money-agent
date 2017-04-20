@@ -40,6 +40,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
@@ -61,6 +62,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
@@ -82,6 +84,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
@@ -103,6 +106,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.user_total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
@@ -125,6 +129,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.user_total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
@@ -150,6 +155,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))
@@ -173,6 +179,7 @@ class ReportService {
         data,
         context
       }).then((res) => {
+        if (res.total < 1) throw 'v-no-result'
         return resolve(res)
       }).catch((err) => {
         return reject(context.$root.i18n(ERROR_CODES[err.toString()] || err))

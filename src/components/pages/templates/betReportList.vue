@@ -56,6 +56,7 @@
 
     methods: {
       doRequest (formData, pageNum = 1) {
+        this.list = []
         const body = {}
         body.game_company = formData.game_company
         body.user_account = formData.user_account

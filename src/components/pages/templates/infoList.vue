@@ -70,6 +70,7 @@
 
     methods: {
       doRequest (formData, pageNum = 1) {
+        this.list = []
         const body = {}
         body.agent_id = formData.agent_id
         body.page_size = formData.page_size
@@ -77,8 +78,9 @@
         body.end_date = formData.end_date
         body.page_num = pageNum
         AgentService.getInfoListTotal({context: this, body: body}).then((res) => {
-          this.totalList[0] = res
-          this.totalList[0].name = this.$root.i18n('total')
+          this.totalList = []
+          res.name = this.$root.i18n('total')
+          this.totalList.push(res)
           return AgentService.getInfoList({context: this, body: body})
         }).then((res) => {
           this.currentPage = pageNum

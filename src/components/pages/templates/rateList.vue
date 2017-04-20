@@ -70,6 +70,7 @@
 
     methods: {
       doRequest (formData, pageNum = 1) {
+        this.list = []
         const body = {}
         body.page_size = formData.page_size
         body.page_num = pageNum

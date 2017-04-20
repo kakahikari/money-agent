@@ -9,6 +9,7 @@ export default {
     'Login success': '登入成功',
     'Logout': '已登出',
     'Total number of records': '记录总数',
+    'Total member of records': '记录会员总数',
     // inputs
     'user account': '会员帐号',
     'user name': '会员姓名',

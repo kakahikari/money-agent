@@ -2,7 +2,7 @@
   .card(v-if="list.length > 0")
     .card-block
       .card-text.text-right
-        .text-muted {{ $root.i18n('Total number of records') }}: {{ total }}
+        .text-muted {{ $root.i18n('Total member of records') }}: {{ total }}
       b-table.table-bordered(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
         template(slot="sum_bet" scope="item")
           | {{ item.value | toNumber }}
@@ -53,6 +53,7 @@
 
     methods: {
       doRequest (formData, pageNum = 1) {
+        this.list = []
         const body = {}
         body.page_size = formData.page_size
         body.start_date = formData.start_date
@@ -61,7 +62,7 @@
         ReportService.getMemberSumReportList({context: this, body: body}).then((res) => {
           this.currentPage = pageNum
           this.list = res.list
-          this.total = res.total
+          this.total = res.user_total
         })
         .catch((err) => {
           this.$root.showToast({type: 'warning', content: err})
