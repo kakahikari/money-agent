@@ -1,12 +1,12 @@
 {
   "name": "money-agent",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Vue.js project",
   "author": "kakahikari <kakahikari@gmail.com>",
   "private": true,
   "scripts": {
     "clean": "rm -rf node_modules/* && rm -rf dist/*",
-    "getGulp": "yarn global add gulpjs/gulp.git#4.0",
+    "getGulp": "npm install gulpjs/gulp.git#4.0 -g",
     "init": "yarn run clean && yarn run getGulp && yarn install && node setVersion",
     "devEnv": "node setConfig '/api' 'dev.sh56789.com' && node setVersion",
     "idrEnv": "node setConfig 'http://grape.api' 'nginx.libra168.com'  && node setVersion",
