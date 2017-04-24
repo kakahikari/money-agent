@@ -17,7 +17,8 @@ const xhr = async ({ context, url = '/', method = 'get', data = null, needToken 
       headers: {
         'cache-control': 'no-cache',
         'site-domain': SITE_DOMAIN
-      }
+      },
+      withCredentials: true
     }
     if (needToken && !apiToken) return reject('1006')
     if (needToken) options.headers['Api-Token'] = apiToken
