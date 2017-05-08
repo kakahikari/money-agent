@@ -28,6 +28,9 @@ Vue.component('icon', icon)
 import vForm from 'layout/components/v-form'
 Vue.component('vForm', vForm)
 import vToast from 'resources/v-toast'
+import VueFlatpickr from 'vue-flatpickr'
+import 'vue-flatpickr/theme/flatpickr.min.css'
+Vue.use(VueFlatpickr)
 
 Vue.config.productionTip = false
 

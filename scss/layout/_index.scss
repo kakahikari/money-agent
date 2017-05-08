@@ -12,3 +12,9 @@
 .layout__container {
 
 }
+
+.form-control {
+  &[readonly="readonly"] {
+    background-color: #fff;
+  }
+}
