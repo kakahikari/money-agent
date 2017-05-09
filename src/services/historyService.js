@@ -50,7 +50,6 @@ class HistoryService {
       data.append('user_account', body.user_account)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
-      data.append('trans_way', body.trans_way)
       data.append('company_bank', body.company_bank)
       data.append('order_num', body.order_num)
       data.append('order_status', body.order_status)

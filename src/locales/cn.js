@@ -15,6 +15,8 @@ export default {
     'user name': '会员姓名',
     'start date': '开始时间',
     'end date': '结束时间',
+    'rebate start time': '返水起始时间',
+    'rebate end time': '返水终止时间',
     'login ip': '最后登入IP',
     'page size': '每页笔数',
     'trans way': '交易方式',
@@ -71,10 +73,10 @@ export default {
     'rebate rate': '返水比例',
     'period taken into account': '执行计算时间',
     'operator': '操作者',
-    'daily rebate': '日退',
-    'weekly rebate': '周退',
-    'monthly rebate': '月退',
-    'quarterly rebate': '季退',
+    'daily rebate': '日返',
+    'weekly rebate': '周返',
+    'monthly rebate': '月返',
+    'quarterly rebate': '季返',
     'issued': '派发',
     'unissued': '未派发',
     'issued time': '派发时间',
@@ -144,13 +146,14 @@ export default {
     'AB': 'AllBet',
     'SA': 'SA',
     // trans way
-    'transfer': '线下存款',
-    'Overseas Chinese Union': '银联支付',
+    'transfer': '转帐',
+    'Overseas Chinese Union': '华联会',
     'Wechat bank card': '微支付',
     'Alipay': '支付宝',
     'AllPay': '欧付宝',
     'Ecpay': '绿界',
     'deposit without bankbook': '临柜付款',
-    'IPS Pay': '環迅'
+    'IPS Pay': '环讯',
+    'DDBill': '多得宝'
   }
 }

@@ -13,6 +13,7 @@ export const errorCodes = {
   '1007': 'suspended',
   '1008': 'password error',
   '1009': 'new password must be different from old password',
+  '1010': 'login failed',
   '2001': 'this bank account has been registered',
   '2002': 'member deposit has been restricted',
   '2003': 'nonexistent account',
@@ -57,5 +58,6 @@ export const transWayList = {
   '4': 'AllPay',
   '5': 'Ecpay',
   '7': 'deposit without bankbook',
-  '8': 'IPS Pay'
+  '8': 'IPS Pay',
+  '9': 'DDBill'
 }

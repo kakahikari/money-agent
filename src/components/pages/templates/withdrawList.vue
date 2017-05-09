@@ -76,7 +76,6 @@
         body.agent_id = formData.agent_id
         body.user_account = formData.user_account
         body.company_bank = formData.company_bank
-        body.trans_way = formData.trans_way
         body.order_num = formData.order_num
         body.order_status = formData.order_status
         body.page_size = formData.page_size

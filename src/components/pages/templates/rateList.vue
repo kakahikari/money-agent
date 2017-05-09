@@ -40,8 +40,8 @@
           rate_money: { label: this.$root.i18n('rebate amount'), sortable: true },
           time_kind: { label: this.$root.i18n('rebate period'), sortable: true },
           rate_proportion: { label: this.$root.i18n('rebate rate'), sortable: true },
-          start_date: { label: this.$root.i18n('start date'), sortable: true },
-          end_date: { label: this.$root.i18n('end date'), sortable: true },
+          start_date: { label: this.$root.i18n('rebate start time'), sortable: true },
+          end_date: { label: this.$root.i18n('rebate end time'), sortable: true },
           act_date: { label: this.$root.i18n('period taken into account'), sortable: true },
           operator: { label: this.$root.i18n('operator'), sortable: true },
           status: { label: this.$root.i18n('order status'), sortable: true }

@@ -7,12 +7,12 @@
         template(slot="status" scope="item")
           | {{ item.value? $root.i18n('activate') : $root.i18n('forbid') }}
         template(slot="deposit_withdrawl" scope="item")
-          template(v-if="item.sum_in_money")
-            | {{ item.sum_in_money | toNumber }}
+          template(v-if="item.item.sum_in_money")
+            | {{ item.item.sum_in_money | toNumber }}
           template(v-else) 0
           |  /
-          template(v-if="item.sum_out_money")
-            | {{ item.sum_out_money | toNumber }}
+          template(v-if="item.item.sum_out_money")
+            | {{ item.item.sum_out_money | toNumber }}
           template(v-else) 0
         template(slot="money" scope="item")
           | {{ item.value | toNumber }}

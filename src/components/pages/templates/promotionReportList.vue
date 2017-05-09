@@ -59,6 +59,7 @@
         body.promotion_name = formData.promotion_name
         body.start_date = formData.start_date
         body.end_date = formData.end_date
+        body.page_size = formData.page_size
         body.page_num = pageNum
         ReportService.getPromotionReportList({context: this, body: body}).then((res) => {
           this.currentPage = pageNum
