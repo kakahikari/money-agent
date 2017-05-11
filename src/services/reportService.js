@@ -95,6 +95,7 @@ class ReportService {
   getMemberSumReportList = ({context, body}) => {
     return new Promise((resolve, reject) => {
       let data = new FormData()
+      data.append('user_account', body.user_account)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
       data.append('page_size', body.page_size)

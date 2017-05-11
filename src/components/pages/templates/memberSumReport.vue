@@ -55,6 +55,7 @@
       doRequest (formData, pageNum = 1) {
         this.list = []
         const body = {}
+        body.user_account = formData.user_account
         body.page_size = formData.page_size
         body.start_date = formData.start_date
         body.end_date = formData.end_date
