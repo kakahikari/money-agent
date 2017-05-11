@@ -98,6 +98,7 @@ export default {
     'live return commission rate (profits)': '真人退庸比例(盈利)',
     'lottery comission rate (valid)': '彩票退庸比例(有效)',
     'sports return commission (profits)': '运动退庸比例(盈利)',
+    'profits': '盈利',
     // error codes
     'success': 'success',
     'format error': '栏位格式错误',

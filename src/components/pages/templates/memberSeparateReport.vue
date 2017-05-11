@@ -8,6 +8,8 @@
           | {{ item.value | toNumber }}
         template(slot="sum_win" scope="item")
           | {{ item.value | toNumber }}
+        template(slot="kind_code" scope="item")
+          | {{ $root.i18n(item.value) }}
       .row.justify-content-center(v-if="this.total>0")
         pagination(v-model="currentPage" ":totalPage"="totalPage" @pageChange="pageChange")
 </template>
@@ -25,6 +27,8 @@
         total: 0,
         list: [],
         fields: {
+          game_company: { label: this.$root.i18n('game company'), sortable: true },
+          kind_code: { label: this.$root.i18n('4 categories'), sortable: true },
           user_account: { label: this.$root.i18n('user account'), sortable: true },
           sum_bet: { label: this.$root.i18n('combined bet (valid bet)'), sortable: true },
           sum_win: { label: this.$root.i18n('member tally'), sortable: true }

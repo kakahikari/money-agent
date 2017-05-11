@@ -34,7 +34,7 @@
         backList: [],
         backFields: {
           name: { label: this.$root.i18n('game company'), sortable: true },
-          money: { label: this.$root.i18n('4 categories'), sortable: true },
+          money: { label: this.$root.i18n('profit'), sortable: true },
           rate: { label: this.$root.i18n('agent'), sortable: true }
         },
         backList10: [],

@@ -95,6 +95,7 @@ export default {
     'live return commission rate (profits)': 'live return commission rate (profits)',
     'lottery comission rate (valid)': 'lottery comission rate (valid)',
     'sports return commission (profits)': 'sports return commission (profits)',
+    'profits': 'profits',
     // error codes
     'success': 'success',
     'format error': 'format error',
