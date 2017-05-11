@@ -1,16 +1,16 @@
 {
   "name": "money-agent",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A Vue.js project",
   "author": "kakahikari <kakahikari@gmail.com>",
   "private": true,
   "scripts": {
     "clean": "rm -rf node_modules/* && rm -rf dist/*",
-    "getGulp": "yarn global add gulpjs/gulp.git#4.0",
-    "init": "yarn run clean && yarn run getGulp && yarn install && node setVersion",
-    "npmInit": "npm run clean && npm install gulpjs/gulp.git#4.0 -g && npm install && node setVersion",
+    "getGulp": "yarn global add github:gulpjs/gulp#4.0",
+    "init": "yarn run clean && yarn run getGulp && yarn upgrade && node setVersion",
+    "npmInit": "npm run clean && npm install github:gulpjs/gulp#4.0 -g && npm install && node setVersion",
     "devEnv": "node setConfig '/api' 'dev.sh56789.com'",
-    "dev": "node build/dev-server.js",
+    "dev": "gulp build:styles && node build/dev-server.js",
     "lint": "eslint --ext .js,.vue src",
     "scss": "gulp watch:styles",
     "build": "rm -rf dist/* && gulp build:styles && node setVersion && node build/build.js && gulp"
