@@ -46,6 +46,7 @@
         UiService.getTemplate(params).then((res) => {
           let selectList = res.inputs.filter(node => node.type === 'select')
           for (var i = 0; i < selectList.length; i++) {
+            if (selectList[i].required === 'true') selectList[i].value = selectList[i].options[0].value
             let options = selectList[i].options
             for (var j = 0; j < options.length; j++) {
               options[j].text = this.$root.i18n(options[j].text)

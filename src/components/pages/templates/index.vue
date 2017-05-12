@@ -8,7 +8,11 @@ section.templates
           .form-group.col-3
             label(v-if="input.required=='true'") *{{ $root.i18n(input['label-name']) }}
             label(v-else) {{ $root.i18n(input['label-name']) }}
-            b-form-select(v-if="input.type=='select'" ":options"="input.options" v-model="input.value")
+            b-form-select(
+              v-if="input.type=='select'"
+              ":options"="input.options"
+              v-model="input.value"
+            )
             Flatpickr.form-control(
               v-else-if="input.class=='date'"
               v-model="input.value"
