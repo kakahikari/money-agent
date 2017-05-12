@@ -4,6 +4,8 @@
       .card-text.text-right
         .text-muted {{ $root.i18n('Total number of records') }}: {{ total }}
       b-table.table-bordered(striped ":per-page"="Number(formData.page_size)" ":items"="list" ":fields"="fields")
+        template(slot="kind" scope="item")
+          | {{ $root.i18n(kindCodeList[item.value]) }}
       .row.justify-content-center
         pagination(v-model="currentPage" ":totalPage"="totalPage" @pageChange="pageChange")
 </template>
@@ -11,6 +13,7 @@
 <script>
   import pagination from './pagination'
   import ReportService from 'services/reportService'
+  import { kindCodeList } from 'src/xhrConfig'
 
   export default {
     name: 'templates__betReportList',
@@ -28,10 +31,11 @@
           bet_amount: { label: this.$root.i18n('bet amount'), sortable: true },
           valid_bet_amount: { label: this.$root.i18n('valid bet amount'), sortable: true },
           pay_off: { label: this.$root.i18n('member tally'), sortable: true },
-          kind: { label: this.$root.i18n('game code'), sortable: true },
-          game_kind: { label: this.$root.i18n('4 categories'), sortable: true },
+          kind: { label: this.$root.i18n('4 categories'), sortable: true },
+          game_kind: { label: this.$root.i18n('game code'), sortable: true },
           bet_num: { label: this.$root.i18n('betting sheet code'), sortable: true }
-        }
+        },
+        kindCodeList: kindCodeList
       }
     },
 

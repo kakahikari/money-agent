@@ -61,3 +61,20 @@ export const transWayList = {
   '8': 'IPS Pay',
   '9': 'DDBill'
 }
+
+export const computeKindList = {
+  '0': 'rebate',
+  '1': 'rebate-individual',
+  '2': 'return commission',
+  '3': 'return commission-individual',
+  '4': 'percentage',
+  '5': 'percentage-individual',
+  '10': 'special (profit + validity)'
+}
+
+export const kindCodeList = {
+  'EG': 'electronic',
+  'LI': 'live',
+  'LO': 'lottery',
+  'SP': 'sports'
+}

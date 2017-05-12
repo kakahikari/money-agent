@@ -90,12 +90,15 @@ export default {
     'combined valid bet': 'combined valid bet',
     'rate': 'rate',
     'valid bet (condition)': 'valid bet (condition)',
+    'valid member': 'valid member',
     'valid member (condition)': 'valid member (condition)',
     'electronic return commission rate (profits)': 'electronic return commission rate (profits)',
     'live return commission rate (profits)': 'live return commission rate (profits)',
     'lottery comission rate (valid)': 'lottery comission rate (valid)',
     'sports return commission (profits)': 'sports return commission (profits)',
     'profits': 'profits',
+    'Compute kind': 'Compute kind',
+    'billing time': 'billing time',
     // error codes
     'success': 'success',
     'format error': 'format error',
@@ -146,6 +149,19 @@ export default {
     'AllPay': 'AllPay',
     'Ecpay': 'Ecpay',
     'deposit without bankbook': 'deposit without bankbook',
-    'IPS Pay': 'IPS Pay'
+    'IPS Pay': 'IPS Pay',
+    // compute kind
+    'rebate': 'rebate',
+    'rebate-individual': 'rebate-individual',
+    'return commission': 'return commission',
+    'return commission-individual': 'return commission-individual',
+    'percentage': 'percentage',
+    'percentage-individual': 'percentage-individual',
+    'special (profit + validity)': 'special (profit + validity)',
+    // kind code
+    'electronic': 'electronic',
+    'live': 'live',
+    'lottery': 'lottery',
+    'sports': 'sports'
   }
 }
