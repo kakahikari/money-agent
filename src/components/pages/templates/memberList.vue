@@ -34,9 +34,9 @@
         list: [],
         fields: {
           agent: { label: this.$root.i18n('agent'), sortable: true },
-          rate_level: { label: this.$root.i18n('rebate level'), sortable: true },
+          // rate_level: { label: this.$root.i18n('rebate level'), sortable: true },
           user: { label: this.$root.i18n('membership account'), sortable: true },
-          name: { label: this.$root.i18n('member'), sortable: true },
+          // name: { label: this.$root.i18n('member'), sortable: true },
           status: { label: this.$root.i18n('user status'), sortable: true },
           register_date: { label: this.$root.i18n('register time'), sortable: true },
           login_date: { label: this.$root.i18n('last login time'), sortable: true },
