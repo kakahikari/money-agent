@@ -13,7 +13,7 @@
           div(@click="setLanguage('cn')") 中文
         b-dropdown-item.nav-item
           div(@click="setLanguage('en')") English
-      b-nav-item(right-alignment) {{ $store.state.AUTH.username }}
+      b-nav-item(right-alignment ":to"="{name: 'index'}") {{ $store.state.AUTH.username }}
       b-nav-item(@click="logout()")
         icon(name="sign-out")
 </template>
@@ -26,6 +26,7 @@
       setLanguage (lang) {
         const params = {context: this, language: lang}
         this.$store.dispatch('setLanguage', params)
+        this.$router.push({name: 'index'})
       },
       toggleMenu () {
         this.$emit('toggleMenu')
