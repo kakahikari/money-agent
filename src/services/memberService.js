@@ -10,7 +10,6 @@ class MemberService {
       data.append('rate_level', '')
       data.append('user_status', body.user_status)
       data.append('user_account', body.user_account)
-      data.append('user_name', body.user_name)
       data.append('start_date', body.start_date)
       data.append('end_date', body.end_date)
       data.append('login_ip', body.login_ip)

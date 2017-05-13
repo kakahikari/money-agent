@@ -77,7 +77,6 @@
         body.start_date = formData.start_date
         body.end_date = formData.end_date
         body.user_account = formData.user_account
-        body.user_name = formData.user_name
         body.user_status = formData.user_status
         body.page_num = pageNum
         MemberService.getMemberList({context: this, body: body}).then((res) => {
