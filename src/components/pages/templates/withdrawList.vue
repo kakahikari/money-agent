@@ -41,8 +41,8 @@
           add_date: { label: this.$root.i18n('add time'), sortable: true },
           trans_way: { label: this.$root.i18n('trans way'), sortable: true },
           company_bank: { label: this.$root.i18n('company bank'), sortable: true },
-          review_account: { label: this.$root.i18n('review account'), sortable: true },
-          grant_account: { label: this.$root.i18n('grant account'), sortable: true },
+          // review_account: { label: this.$root.i18n('review account'), sortable: true },
+          // grant_account: { label: this.$root.i18n('grant account'), sortable: true },
           money: { label: this.$root.i18n('amount'), sortable: true },
           order_status: { label: this.$root.i18n('order status'), sortable: true }
         },

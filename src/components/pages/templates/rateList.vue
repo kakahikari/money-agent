@@ -43,7 +43,7 @@
           start_date: { label: this.$root.i18n('rebate start time'), sortable: true },
           end_date: { label: this.$root.i18n('rebate end time'), sortable: true },
           act_date: { label: this.$root.i18n('period taken into account'), sortable: true },
-          operator: { label: this.$root.i18n('operator'), sortable: true },
+          // operator: { label: this.$root.i18n('operator'), sortable: true },
           status: { label: this.$root.i18n('order status'), sortable: true }
         }
       }
