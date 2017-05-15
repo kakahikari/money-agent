@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import vSpinner from 'layout/components/v-spinner'
+  import vSpinner from 'components/v-spinner'
 
   export default {
     name: 'v-form',
@@ -36,7 +36,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "scss/share";
+  @import "~src/assets/scss/share";
 
   form {
     position: relative;

@@ -14,8 +14,8 @@
 </template>
 
 <script>
-  import sideMenu from 'assets/layout/side-menu'
-  import navBar from 'assets/layout/nav-bar'
+  import sideMenu from 'layout/side-menu'
+  import navBar from 'layout/nav-bar'
   import { _VERSION } from 'src/version'
 
   export default {
@@ -42,7 +42,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "scss/share";
+  @import "~src/assets/scss/share";
 
   .row {
     min-height: calc(100vh - 54px);

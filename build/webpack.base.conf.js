@@ -28,9 +28,9 @@ module.exports = {
       'stores': path.resolve(__dirname, '../src/stores'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
-      'resources': path.resolve(__dirname, '../src/assets/resources'),
-      'layout': path.resolve(__dirname, '../src/assets/layout'),
-      'pages': path.resolve(__dirname, '../src/components/pages')
+      'layout': path.resolve(__dirname, '../src/components/layout'),
+      'pages': path.resolve(__dirname, '../src/components/pages'),
+      'scss': path.resolve(__dirname, '../src/assets/scss')
     }
   },
   module: {

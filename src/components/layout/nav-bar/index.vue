@@ -39,7 +39,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "scss/share";
+  @import "~src/assets/scss/share";
 
   .navbar-brand {
     a {

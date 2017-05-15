@@ -16,19 +16,28 @@ Vue.filter('toNumber', function (value) {
   return out.toNumber({})
 })
 
-// UI
+// css
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'assets/scss/style.scss'
+
+// UI components
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
+
+import vForm from 'components/v-form'
+Vue.component('vForm', vForm)
+
 import Waves from 'vue-directive-waves'
 Vue.use(Waves)
 
-// components
-import icon from 'resources/icon'
+import icon from 'components/icon'
 Vue.component('icon', icon)
-import vForm from 'layout/components/v-form'
-Vue.component('vForm', vForm)
-import vToast from 'resources/v-toast'
+
+import vToast from 'components/v-toast'
+
 import VueFlatpickr from 'vue-flatpickr'
+
 import 'vue-flatpickr/theme/flatpickr.min.css'
 Vue.use(VueFlatpickr)
 

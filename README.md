@@ -6,11 +6,10 @@
 
 ``` bash
 # install dependencies
-yarn install
+yarn run init
 
 # serve with hot reload at localhost
 yarn run devEnv
-yarn run scss
 yarn run dev
 > linux and macOS need sudo for 80 port
 
