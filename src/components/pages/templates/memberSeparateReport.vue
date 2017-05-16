@@ -9,7 +9,7 @@
         template(slot="sum_win" scope="item")
           | {{ item.value | toNumber }}
         template(slot="kind_code" scope="item")
-          | {{ $root.i18n(item.value) }}
+          | {{ $root.i18n(kindCodeList[item.value]) }}
       .row.justify-content-center(v-if="this.total>0")
         pagination(v-model="currentPage" ":totalPage"="totalPage" @pageChange="pageChange")
 </template>
@@ -17,6 +17,7 @@
 <script>
   import pagination from './pagination'
   import ReportService from 'services/reportService'
+  import { kindCodeList } from 'src/xhrConfig'
 
   export default {
     name: 'templates__memberSeparateReport',
@@ -32,7 +33,8 @@
           user_account: { label: this.$root.i18n('user account'), sortable: true },
           sum_bet: { label: this.$root.i18n('combined bet (valid bet)'), sortable: true },
           sum_win: { label: this.$root.i18n('member tally'), sortable: true }
-        }
+        },
+        kindCodeList: kindCodeList
       }
     },
 
