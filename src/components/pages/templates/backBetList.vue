@@ -4,6 +4,8 @@
       .card-text.text-right
         .text-muted {{ $root.i18n('Compute kind') }}: {{$root.i18n(computeKindList[kind])}}
       b-table.table-bordered(striped ":per-page"="Number(formData.page_size)" ":items"="mainList" ":fields"="mainFields[kind]")
+        template(slot="kind_code" scope="item")
+          | {{ $root.i18n(kindCodeList[item.value]) }}
         template(slot="agent_name" scope="item")
           template(v-if="item.value == '' || item.value == null")
             | {{ $root.i18n('total') }}
