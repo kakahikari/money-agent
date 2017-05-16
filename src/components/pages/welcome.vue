@@ -24,5 +24,6 @@ export default {
     background: url("../../../static/images/welcome.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    text-shadow: 2px 2px rgba(#000, .9);
   }
 </style>
