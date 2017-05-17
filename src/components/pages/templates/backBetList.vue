@@ -41,7 +41,7 @@
           },
           1: {
             agent_name: { label: this.$root.i18n('agent') },
-            name: { label: this.$root.i18n('game company') },
+            game_type: { label: this.$root.i18n('game company') },
             kind_code: { label: this.$root.i18n('4 categories') },
             sum_bet: { label: this.$root.i18n('combined valid bet') },
             profit: { label: this.$root.i18n('profits (valid bet-payout)') },
@@ -63,7 +63,7 @@
           },
           3: {
             agent_name: { label: this.$root.i18n('agent') },
-            name: { label: this.$root.i18n('game company') },
+            game_type: { label: this.$root.i18n('game company') },
             kind_code: { label: this.$root.i18n('4 categories') },
             sum_bet: { label: this.$root.i18n('combined valid bet') },
             profit: { label: this.$root.i18n('profits (valid bet-payout)') },
@@ -85,7 +85,7 @@
           },
           5: {
             agent_name: { label: this.$root.i18n('agent') },
-            name: { label: this.$root.i18n('game company') },
+            game_type: { label: this.$root.i18n('game company') },
             kind_code: { label: this.$root.i18n('4 categories') },
             sum_bet: { label: this.$root.i18n('combined valid bet') },
             profit: { label: this.$root.i18n('profits (valid bet-payout)') },
