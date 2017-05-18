@@ -57,6 +57,8 @@
         const body = {}
         body.promotion_kind = formData.promotion_kind
         body.promotion_name = formData.promotion_name
+        body.promotion_name = formData.promotion_name
+        body.agent_id = formData.agent_id
         body.start_date = formData.start_date
         body.end_date = formData.end_date
         body.page_size = formData.page_size

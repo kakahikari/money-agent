@@ -171,6 +171,7 @@ class ReportService {
       data.append('end_date', body.end_date)
       data.append('promotion_kind', body.promotion_kind)
       data.append('promotion_name', body.promotion_name)
+      data.append('agent_id', body.agent_id)
       data.append('page_size', body.page_size)
       data.append('page_num', body.page_num)
 
