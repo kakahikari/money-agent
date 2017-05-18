@@ -62,6 +62,7 @@ const actions = {
       const params = { context: param, language: language }
       UiService.getFieldList(params).then((res) => {
         MAIN.dispatch('setSideMenu', res)
+        return resolve()
       })
       .catch((err) => {
         return reject(err)
