@@ -46,16 +46,17 @@
         const params = {context: this, actionKey: key}
         UiService.getTemplate(params).then((res) => {
           // 處理agent_id之階層顯示
-          let agent = res.inputs.filter(node => node.type === 'select' && node.name === 'agent_id')[0]
+          let agent = res.inputs.filter(node => node.type === 'select' && node.name === 'agent_id')
           let agentTree = new AgentTree()
-          if (agent !== undefined) {
+          if (agent.length > 0) {
+            agent = agent[0]
             agent['agent-info'].forEach((node) => {
               let agentTreeNode = new AgentTreeNode(node.id, node.name, node.parent_id)
               agentTree.add(agentTreeNode)
             })
+            agentTree.setOptions()
+            agent.options = agentTree.options
           }
-          agentTree.setOptions()
-          agent.options = agentTree.options
 
           let selectList = res.inputs.filter(node => node.type === 'select')
           for (var i = 0; i < selectList.length; i++) {
@@ -74,6 +75,7 @@
           this.$router.push({ name: res.template, params: {actionName: res.template, inputs: res.inputs, pageTitle: pageTitle} })
         })
         .catch((err) => {
+          console.log(err)
           this.$root.showToast({type: 'warning', content: err})
         })
       }
