@@ -18,7 +18,7 @@
 <script>
   import node from './node'
   import UiService from 'services/uiService'
-  import { AgentTreeNode, AgentTree } from 'helper/AgentTree'
+  import { AgentTreeNode, AgentTree } from 'helper/agentTree'
 
   export default {
     name: 'side-menu',
