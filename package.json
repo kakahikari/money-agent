@@ -8,7 +8,7 @@
     "clean": "rm -rf node_modules && rm -rf dist/*",
     "init": "yarn run clean && yarn install && node setVersion",
     "npmInit": "npm run clean && npm install && node setVersion",
-    "devEnv": "node setConfig '/api' 'dev.sh56789.com'",
+    "devEnv": "node setConfig '/api'",
     "dev": "node build/dev-server.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "rm -rf dist/* && node setVersion && node build/build.js"

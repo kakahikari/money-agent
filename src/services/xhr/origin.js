@@ -1,10 +1,11 @@
 import { ERROR_CODES, XHR_TIMEOUT } from './config'
-import { API_URL, SITE_DOMAIN } from 'src/config'
+import { API_URL } from 'src/config'
 import { readCookie } from '../'
 import axios from 'axios'
 
 const xhr = async ({ context, url = '/', method = 'get', data = null, needToken = true }) => {
   const apiToken = await readCookie('apiToken')
+  const siteDomain = location.host
 
   return new Promise((resolve, reject) => {
     const outOfSite = url.includes('://')
@@ -16,7 +17,7 @@ const xhr = async ({ context, url = '/', method = 'get', data = null, needToken 
       timeout: XHR_TIMEOUT,
       headers: {
         'cache-control': 'no-cache',
-        'site-domain': SITE_DOMAIN
+        'site-domain': siteDomain
       },
       withCredentials: true
     }
